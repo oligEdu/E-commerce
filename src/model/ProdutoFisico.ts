@@ -9,8 +9,7 @@ export class ProdutoFisico extends Produto {
   }
 
   exibirDetalhes(): void {
-  console.log(`Produto Digital - ${this.descricao} | Preço: R$${this.preco} | Quantidade: ${this.quantidade}
-     | Tamanho: ${this._peso}MB`);
+  console.log(`\nProduto Fisico - ${this.descricao} | Preço: R$${this.preco} | Quantidade: ${this.quantidade} | Peso: ${this._peso}kg`);
 }
 
     get peso(): number {

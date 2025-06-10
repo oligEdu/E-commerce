@@ -9,7 +9,7 @@ export class ProdutoDigital extends Produto {
   }
 
   exibirDetalhes(): void {
-  console.log(`Produto Digital - ${this.descricao} | Preço: R$${this.preco} | Quantidade: ${this.quantidade} | Tamanho: ${this._tamanhoArquivo}MB`);
+  console.log(`\nProduto Digital - ${this.descricao} | Preço: R$${this.preco} | Quantidade: ${this.quantidade} | Tamanho: ${this._tamanhoArquivo}MB`);
 }
 
     get tamanhoArquivo(): number {

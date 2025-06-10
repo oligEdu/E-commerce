@@ -10,43 +10,53 @@ function menu(): void {
   let sair = false;
 
   while (!sair) {
-    console.log("\n===== MENU =====");
+    console.log("\n============= MENU =============");
     console.log("1. Adicionar Produto Físico");
     console.log("2. Adicionar Produto Digital");
     console.log("3. Listar Produtos");
     console.log("0. Sair");
-    console.log("\n================");
+    console.log("==================================\n");
 
-    const opcao = readlineSync.question("Escolha uma opção: ");
+    const opcao = readlineSync.question("Escolha uma opcao: ");
+
+            if (opcao == "0") {
+            console.log("                 \nLoja de E-commerce ");
+            sobre();
+            console.log("");
+            process.exit(0);
+            }
 
     switch (opcao) {
+
       case "1":
         try {
-          const desc = readlineSync.question("Descrição: ");
-          const preco = parseFloat(readlineSync.question("Preço: "));
+          const desc = readlineSync.question("\nDescricao: ");
+          const preco = parseFloat(readlineSync.question("Preco: "));
           const quant = parseInt(readlineSync.question("Quantidade: "));
           const peso = parseFloat(readlineSync.question("Peso (kg): "));
           controller.adicionarFisico(desc, preco, quant, peso);
-          console.log("Produto físico adicionado com sucesso!");
+          console.log("\nProduto físico adicionado com sucesso!");
 
         } catch (error) {
           if (error instanceof Error) {
+            if (error instanceof Error) {
             console.log("Erro: " + error.message);
-        } else {
+            } else {
             console.log("Erro desconhecido.");
+            }
+          }
         }
-}
 
         break;
 
       case "2":
         try {
-          const desc = readlineSync.question("Descrição: ");
-          const preco = parseFloat(readlineSync.question("Preço: "));
+          const desc = readlineSync.question("\nDescricao: ");
+          const preco = parseFloat(readlineSync.question("Preco: "));
           const quant = parseInt(readlineSync.question("Quantidade: "));
           const tamanho = parseFloat(readlineSync.question("Tamanho do Arquivo (MB): "));
           controller.adicionarDigital(desc, preco, quant, tamanho);
-          console.log("Produto digital adicionado com sucesso!");
+          console.log("\nProduto digital adicionado com sucesso!");
 
         } catch (error) {
           if (error instanceof Error) {
@@ -54,23 +64,28 @@ function menu(): void {
         } else {
             console.log("Erro desconhecido.");
         }
-}
+     }
 
         break;
 
-      case "3":
+    case "3":
         controller.listarProdutos();
         break;
-
-      case "0":
+         
+    case "0":
         sair = true;
         console.log("Saindo...");
         break;
+  }
 
-      default:
-        console.log("Opção inválida!");
+    function sobre(): void {
+    console.log("\n*****************************************************");
+    console.log("Projeto Desenvolvido por: Eduardo Garcia.");
+    console.log("Generation Brasil - eduardoj@generation.org");
+    console.log("github.com/oligEdu/Conta_Bancaria.ts");
+    console.log("*****************************************************");
+        }
     }
   }
-}
 
 menu();
